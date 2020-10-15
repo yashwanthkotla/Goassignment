@@ -84,7 +84,7 @@ func start_go_routine(actual_function func() string, result chan string,
 A dummy function
 */
 func print_something() string {
-	for a := 0; a < 10; a++ {
+	for a := 0; a < 6; a++ {
 		fmt.Printf("\nvalue of a: %d", a)
 		time.Sleep(time.Second)
 	}
@@ -96,7 +96,7 @@ Method to cancel the routine
 */
 func routine_cancel(pointer *Future) bool {
 	if pointer.status == "notstarted" {
-		fmt.Printf("\n trying to cancel func")
+		fmt.Printf("\nstopping go routine")
 		pointer.status = "cancelled"
 		return true
 	} else {
@@ -157,7 +157,7 @@ func add_done_callback(newfunc func(), pointer *Future) bool {
 Another dummy method
 */
 func print_something_new() {
-	for a := 0; a < 5; a++ {
+	for a := 0; a < 3; a++ {
 		fmt.Printf("\nnew value of b: %d", a)
 		time.Sleep(time.Second)
 	}
